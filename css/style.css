@@ -3,6 +3,7 @@ body {
 	background: linear-gradient(to top, #333, #111);
 	height: 500px;
 	width: auto;
+	font-family: 'Futura', Arial, sans-serif;
 }
 
 
@@ -22,6 +23,10 @@ h3 {
 
 }
 
+a {
+	text-decoration: none;
+}
+
 #wrapper {
 	margin: 0px auto;
 	text-align: center;
@@ -31,8 +36,7 @@ h3 {
 #username{
 	width: 450px;
 	height: 41px;
-	border: 2px red solid;
-
+	margin: 0px auto;
 }
 .inputBox {
 	background-color: #ddd;
@@ -63,9 +67,11 @@ h3 {
 	padding: 0px;
 	display: inline-block;
 	border: none;
+	text-align: center;
+	vertical-align: middle;
 }
 
-.tictactoeSpace {
+.tictactoeSpaces {
 	width: 100px;
 	height: 100px;
 	border: 4px white solid;
