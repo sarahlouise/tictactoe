@@ -4,7 +4,7 @@ body {
 	width: auto;
 	font-family: 'Futura', Arial, sans-serif;
 	text-align: center;
-	height: 1200px;
+	height: 900px;
 }
 
 
@@ -118,7 +118,7 @@ a {
 .board {
 	display: inline-block;
 	width: 350px;
-	height: 350px;
+	height: 300px;
 	margin: 0 5px;
 }
 

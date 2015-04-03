@@ -16,6 +16,7 @@
 <body ng-controller="TicTacToeController as game">
 <!-- Game Controller Initiation defined as 'game' -->
 <section id="popup" ng-hide="game.submit"></section>
+
 <!-- POPUP LOGIN SCREEN START -->
 	<div id="outer-wrapper" ng-hide="game.submit">
 		<div id="popup-wrapper">
@@ -26,25 +27,19 @@
 				</div>
 		</div>
 	</div>
-	</section>
-
 <!-- POPUP LOGIN SCREEN END -->
 
-<!-- GAMEBOARD MAIN START -->
-
+<!-- GAMEBOARD MAIN PAGE -->
 	<header>
 		<h1>Tic Tac Toe</h1>
 	</header>
 		<section id="all-game">
+		<!-- GAMEBOARD + SCOREBOARD + MESSAGING: START -->
 			<div id="main-board">		
 			<!-- Begin Centered Board -->
-
 				<div class ="board">
 				<!-- Main Gameboard Start -->
-					<button class="tictactoeSpaces" 
-					ng-repeat="space in game.spaces"
-					ng-click="game.playerClick($index)"
-					ng-class="{'x': space.playerX === true, 'o': space.playerO === true}">
+					<button class="tictactoeSpaces" ng-repeat="space in game.spaces" ng-click="game.playerClick($index)" ng-class="{'x': space.playerX === true, 'o': space.playerO === true}">
 					</button>
 				</div>
 
@@ -52,6 +47,7 @@
 				<!-- End Gameboard -->
 
 			<section id="scoreboard">
+			<!-- SCOREBOARD START -->
 				<div class ="score-wrapper">
 				<!-- user1 scoreboard start-->
 					<h3>{{ game.playerOscore }}</h3>
@@ -61,24 +57,30 @@
 
 				<div class ="score-wrapper">
 				<!-- user1 scoreboard start-->
-					<h3>{{ game.playerOscore }}</h3>
+					<h3>{{ game.tieGame }}</h3>
 					<h5>Tie</h5>
 				</div>
 
 				<div class="score-wrapper">
 				<!-- User2 Scoreboard -->
-					<h3>{{ game.playerOscore }}</h3>
+					<h3>{{ game.playerXscore }}</h3>
 					<h5>Player 2</h5>
 				</div>
 				<!-- User2 Scoreboard End -->
 			</section>  
+			<!-- SCOREBOARD END -->
 
 			<div>
+				<button ng-click="game.clearboard()" class="popup-button">Play Again!</button>
+			</div>
+
+	
 			<!-- Messaging box start -->
+<!-- 			<div>
 				<input id="messages" class = "inputBox">
 				<input class="inputBox" type="text" placeholder="Go on, say hello...">
 				<button class="button"><img src="images/button-image.jpg" width="50"></button>
-			</div>
+			</div> -->
 			<!-- messaging box end -->
 	</section>
 	<!-- GAMBAORD MAIN END -->
