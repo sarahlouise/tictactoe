@@ -15,12 +15,29 @@
 
 <body ng-controller="TicTacToeController as game">
 <!-- Game Controller Initiation defined as 'game' -->
+<section id="popup" ng-hide="game.submit"></section>
+<!-- POPUP LOGIN SCREEN START -->
+	<div id="outer-wrapper" ng-hide="game.submit">
+		<div id="popup-wrapper">
+			<h2>Ready for some<br>good old-fashion fun?</h2>
+				<div id="username">
+					<input type="text" class="popup-username-input" placeholder="Enter your username here...." ng-model="game.username">
+					<button type="submit" ng-click="game.beginPlay()" class="popup-button">LET'S GO!</button>
+				</div>
+		</div>
+	</div>
+	</section>
+
+<!-- POPUP LOGIN SCREEN END -->
+
+<!-- GAMEBOARD MAIN START -->
+
 	<header>
 		<h1>Tic Tac Toe</h1>
 	</header>
-
+		<section id="all-game">
 			<div id="main-board">		
-			<!-- Begin  Centered Board -->
+			<!-- Begin Centered Board -->
 
 				<div class ="board">
 				<!-- Main Gameboard Start -->
@@ -33,29 +50,28 @@
 
 			</div>
 				<!-- End Gameboard -->
-			<section id="scoreboard">
 
+			<section id="scoreboard">
 				<div class ="score-wrapper">
 				<!-- user1 scoreboard start-->
-					<h3>1</h3>
-					<h5>Player 1</h5> 
+					<h3>{{ game.playerOscore }}</h3>
+					<h5>{{ game.username }}</h5> 
 				</div>
 				<!-- user1 scoreboard end -->
 
 				<div class ="score-wrapper">
 				<!-- user1 scoreboard start-->
-					<h3>0</h3>
+					<h3>{{ game.playerOscore }}</h3>
 					<h5>Tie</h5>
 				</div>
 
 				<div class="score-wrapper">
 				<!-- User2 Scoreboard -->
-					<h3>2</h3>
+					<h3>{{ game.playerOscore }}</h3>
 					<h5>Player 2</h5>
 				</div>
 				<!-- User2 Scoreboard End -->
-
-			</section>
+			</section>  
 
 			<div>
 			<!-- Messaging box start -->
@@ -64,6 +80,8 @@
 				<button class="button"><img src="images/button-image.jpg" width="50"></button>
 			</div>
 			<!-- messaging box end -->
+	</section>
+	<!-- GAMBAORD MAIN END -->
 
 </body>
 </html>

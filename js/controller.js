@@ -6,12 +6,14 @@ angular
 		var self = this;
 		// var ref = new Firebase('https://sarahstictactoe.firebaseio.com')
 		self.username; //Stores input from mainpage username;
+		self.beginPlay = beginPlay;
+		self.submit = false;
 		self.playerClick = playerClick;
 		self.turn = 1;
-		self.playerXscore;  //ng-model to gameboard
-		self.playerOscore; //ng-model to gameboard
-
-		console.log(self.turn)
+		self.playerXscore = 0;  //ng-model to gameboard
+		self.playerOscore = 0; //ng-model to gameboard
+		self.tieGame = 0;
+		self.getWinner = getWinner;
 		//Start spaces
 		self.spaces = [
 			{value: '', playerX: false, playerO: false},
@@ -35,19 +37,24 @@ angular
 								} else if(self.turn === 2){
 									self.spaces[$index].value = 'O', self.spaces[$index].playerO = true, self.turn = 1;
 								};
+					// getWinner();
 
-								console.log(self.turn)
-					}; ///END PLAYER CLICK FUNCTION
+			}; ///END PLAYER CLICK FUNCTION
 
-
+		//BEGIN GET WINNER FUNCTION
 		function getWinner(){
 			if(self.spaces.value[0] + self.spaces.value[1] + self.spaces.value[2] === 'X','X','X'){
-				playerXscore++;
+				return playerXscore++;
 			} else if (self.spaces.value[0] + self.spaces.value[1] + self.spaces.value[2] === 'O','O','O')
-				playerOscore++;
+				return playerOscore++;
 
 		};
+		//END GET WINNER FUNCTION//
 
+		//BEGIN NEW GAME//
+		function beginPlay(){
+			self.submit = true};
+		//END BEGINPLAY FUNCTION//
 
 
 

@@ -11,7 +11,8 @@ body {
 h1{
 	font-family: 'Lobster', cursive;
 	font-size: 75pt;
-	line-height: 1;
+	margin-top: 0px;
+  	padding-top: 30px;
 }
 
 h2 {
@@ -47,31 +48,57 @@ a {
 	margin: 0px auto;
 }
 
-/*////////////////////HOMEPAGE STYLING////////////////////*/
-.mainpg-inputBox {
-	background-color: #ddd;
-/*	border: 2px black solid;
-*/	height: 40px;
-	width: 250px;
-	display: inline-block;
-	border: none;
-	padding:0px;
-	vertical-align: top;
-	color: #333;
+/*////////////////////POPUP PAGE STYILNG////////////////////*/
+#popup {
+	background-color: rgba(0, 0, 0, 0.75);
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	position: fixed;
+	transition: 2s all;
+	}
+
+#outer-wrapper {
+    position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    z-index: 13;
+    transition: 2s all;
 }
 
-.mainpg-inputBox p {
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-style: italic;
-	font-size: 13pt;
-}
-
-/*HOMEPAGE BUTTON*/
-
-.mainpg-button{
+#popup-wrapper {
+	background: radial-gradient(#333, #111);
+	/*position: static;*/
+	max-width: 60%;
+	height: 270px;
+	border: 3px white solid;
+	border-radius: 10px;
 	color: #ddd;
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	text-align: center;
+	margin: 100px auto;
+	z-index: 9999;
+	transition: 2s all;
+
+}
+
+.popup-username-input {
+	background-color: #ddd;
+/*	border: 2px red solid;
+*/	width: 250px;
+	height: 40px;
+	display: inline-block;
+	padding: 0px;
+	vertical-align: top;
+	color: #333;
+	border: none;
+}
+
+.popup-button {
 	background-color: #fd7221;
+	color: #ddd;
 	margin: 0px auto;
 	height: 40px;
 	width: 150px;
@@ -80,14 +107,13 @@ a {
 	display: inline-block;
 	border: none;
 	text-align: center;
-	vertical-align: middle;
 }
-
-
 
 /*////////////////////GAME PAGE STYLING////////////////////*/
 
-
+#all-game {
+	z-index: 1;
+}
 /*GAMEBOARD*/
 .board {
 	display: inline-block;
@@ -101,6 +127,10 @@ a {
 	height: 100px;
 	border: 4px white solid;
 	display: inline-block;
+}
+
+.tictactoeSpaces:hover{
+	background-color: blue;
 }
 
 #scoreboard{
