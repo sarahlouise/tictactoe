@@ -1,0 +1,30 @@
+angular
+	.module('ticTacToeApp')
+	.controller('TicTacToe', TicTacToe);
+
+	TicTacToe.$inject = ["$firebaseArray", "$firebaseObject"]
+
+	function TicTacToe($firebaseArray, $firebaseObject){
+
+		var ref = new Firebase('https://sarahstictactoe.firebaseio.com')
+
+		var self = this;
+		self.username; //Stores input from mainpage username;
+
+		//Start Spaces
+		self.spaces = [
+			{spaceValue:'a', player1: false, player2: false},
+			{spaceValue:'b', player1: false, player2: false},
+			{spaceValue:'c', player1: false, player2: false},
+			{spaceValue:'d', player1: false, player2: false},
+			{spaceValue:'e', player1: false, player2: false},
+			{spaceValue:'f', player1: false, player2: false},
+			{spaceValue:'g', player1: false, player2: false},
+			{spaceValue:'h', player1: false, player2: false},
+			{spaceValue:'i', player1: false, player2: false},
+		]; //End Spaces
+
+
+
+
+	} ///////CLOSES TICTACTOE CONTROLLER//////////

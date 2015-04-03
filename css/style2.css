@@ -1,4 +1,4 @@
-body {
+/*body {
 	color: #ddd;
 	background: radial-gradient(#333, #111);
 	width: auto;
@@ -6,7 +6,7 @@ body {
 	text-align: center;
 	height: 1200px;
 }
-
+*/
 
 h1{
 	font-family: 'Lobster', cursive;
@@ -47,7 +47,18 @@ a {
 	margin: 0px auto;
 }
 
-/*////////////////////HOMEPAGE STYLING////////////////////*/
+/*////////////////////WELCOME BOX STYLING////////////////////*/
+#welcome-box {
+	color: #ddd;
+	background: radial-gradient(#333, #111);
+	width: 400px;
+	font-family: 'Futura', Arial, sans-serif;
+	text-align: center;
+	height: 300px;
+	border: 3px white solid;
+	border-radius: 10%;
+}
+
 .mainpg-inputBox {
 	background-color: #ddd;
 /*	border: 2px black solid;

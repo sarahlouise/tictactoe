@@ -10,8 +10,9 @@ body {
 
 h1{
 	font-family: 'Lobster', cursive;
-	font-size: 50pt;
+	font-size: 75pt;
 }
+
 
 h2 {
 	font-size: 30pt;
@@ -23,8 +24,16 @@ h2 {
 
 h3 {
 	font-size: 20pt;
-	font-family: 'Futura', Arial, sans-serif;
+	font-family: Futura, “Trebuchet MS”, Arial, sans-serif;
 }
+
+/*LINK STYLING */
+a {
+	text-decoration: none;
+}
+
+
+/*FOOTER*/
 
 footer {
 	height: 100px;
@@ -87,16 +96,3 @@ footer {
 	border: none;
 }
 
-/*GAMEBOARD*/
-.board {
-	display: inline-block;
-	width: 350px;
-	height: 350px;
-	margin: 0 35px;
-}
-
-.tictactoeSpaces {
-	width: 100px;
-	height: 100px;
-	border: 4px white solid;
-}

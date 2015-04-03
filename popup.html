@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Game Over</title>
+	<title>Welcome Page</title>
 		<link rel="stylesheet" type="text/css" href="css/normalize.css">
 		<!-- game board style sheet -->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -15,8 +15,9 @@
 <body>
 	<div id="wrapper">
 		<h1>Tic Tac Toe</h1>
-			<button class="button">PLAY AGAIN!</button><br>
-			<button class="button">SIGN OFF</button>
+		<div id="username" ng-model="game.username">
+			<input class="mainpg-inputBox" type="text" placeholder="Enter your username here....">
+			<a href="game.html" button type="submit"class="mainpg-button">LET'S GO!</button></a>
 		</div>
 	</div>
 </body>
