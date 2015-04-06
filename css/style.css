@@ -214,3 +214,57 @@ a {
 	display: inline-block;
 	border: none;
 }
+
+.toggle {
+    -webkit-transition: linear 1s;
+    -moz-transition: linear 1s;
+    -ms-transition: linear 1s;
+    -o-transition: linear 1s;
+    transition: linear 1s;
+}
+
+//////GAME ALERT BOX/////
+#alert{
+    position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    z-index: 13;
+    transition: 2s all;
+}
+
+#alert-wrapper {
+	background: radial-gradient(#333, ##fd7221);
+	/*position: static;*/
+	max-width: 60%;
+	height: 270px;
+	border: 3px white solid;
+	border-radius: 10px;
+	color: #ddd;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	text-align: center;
+	margin: 100px auto;
+	z-index: 9999;
+	transition: 2s all;
+
+}
+
+}
+
+/*////TOGGLE ALERTS///*/
+.toggle.ng-enter {
+    opacity: 0;
+}
+
+.toggle.ng-enter-active {
+    opacity: 1;
+}
+
+.toggle.ng-leave {
+    opacity: 1;
+}
+
+.toggle.ng-leave-active {
+    opacity: 0;
+}

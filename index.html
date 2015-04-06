@@ -2,7 +2,7 @@
 <html ng-app="App">
 	<head>
 		<meta charset="utf-8">
-		<title>Guacamole!</title>
+		<title>TicTacToe!</title>
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/style.css">
         <!-- angular -->
@@ -44,6 +44,12 @@
         <!-- GAME OVER SCREEN END -->
 
         <h1>TicTacToe!</h1>
+
+        <!-- /////ALERT POPUP//// -->
+        <div id="alert-wrapper" ng-if="main.toggle">>
+            <h2> {{ main.game.message }}</h2>
+        </div>
+
             <section id="all-game">
                 <div id="main-board">       
                 <!-- Begin Centered Board -->
@@ -74,7 +80,7 @@
                 <div class="score-wrapper">
                 <!-- User2 Scoreboard -->
                     <h3>{{ main.game.playerXscore }}</h3>
-                    <h5>Player 2</h5>
+                    <h5>Player X</h5>
                 </div>
                 <!-- User2 Scoreboard End -->
             </section>  

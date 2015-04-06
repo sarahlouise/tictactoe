@@ -20,6 +20,7 @@ angular
         
         function syncGameWithFirebase(){
             var ref = new Firebase('https://sarahstictactoe.firebaseio.com');
+
             var gameObject = $firebaseObject(ref);
 
             //initialize values in the gameObject once it's loaded
@@ -29,8 +30,8 @@ angular
                 gameObject.playerOscore = 0; //ng-model to gameboard
                 gameObject.tieGame = 0;
                 gameObject.occupierTally = 0;
-                gameObject.username; //Stores input from mainpage username;
-                gameObject.playAgain = false;  //false = gameover sceen is hidden, tied to 
+                gameObject.username = "Player O" //Stores input from mainpage username;
+                gameObject.playAgain;  //false = gameover sceen is hidden, tied to 
                 gameObject.spaces = [];
                 for(var i = 0; i < 9; i++){
                     gameObject.spaces.push({occupier: '', playerX: false, playerO: false});
@@ -67,6 +68,7 @@ angular
             console.log('gameOver initiated');
             self.game.playAgain = false;
             self.game.$save();
+            //add "unauth()" to a button on this popup screen to log out a user
             };//hides gameover screen
 
         function tieTally(){
@@ -75,6 +77,7 @@ angular
             if(self.game.occupierTally == 9){
                 console.log("It's a tie!");
                 self.game.tieGame++;
+                setTimeout(function(){clearboard();}, 700);
                 self.game.$save();
                 };
             }; //closes TieTally
@@ -93,83 +96,105 @@ angular
             if(row1 == 'XXX'){
                 console.log("X won!"); 
                 self.game.playerXscore ++; 
+                setTimeout(function(){clearboard();}, 700);
                 self.game.$save();
             }else if (row2 == 'XXX'){
                 console.log("X won!"); 
                 self.game.playerXscore ++; 
+                setTimeout(function(){clearboard();}, 700);
                 self.game.$save();
             }else if (row3 == 'XXX'){
                 console.log("X won!"); 
                 self.game.playerXscore ++; 
+                setTimeout(function(){clearboard();}, 700);
                 self.game.$save();
             }else if (diag1 == 'XXX'){
                 console.log("X won!"); 
                 self.game.playerXscore ++;
+                setTimeout(function(){clearboard();}, 700);
                 self.game.$save();
             }else if (diag2 == 'XXX'){
                 console.log("X won!"); 
                 self.game.playerXscore ++;
+                setTimeout(function(){clearboard();}, 700);
                 self.game.$save();
             }else if (column1 == 'XXX'){
                 console.log("X won!"); 
                 self.game.playerXscore ++;
+                setTimeout(function(){clearboard();}, 700);
                 self.game.$save();
             }else if (column2 == 'XXX'){
                 console.log("X won!"); 
                 self.game.playerXscore ++;
+                setTimeout(function(){clearboard();}, 700);
                 self.game.$save();
             }else if (column3 == 'XXX'){
                 console.log("X won!"); 
                 self.game.playerXscore ++;
+                setTimeout(function(){clearboard();}, 700);
                 self.game.$save();
             //assess O win
             }else if(row1 == 'OOO'){
                 console.log("O won!"); 
                 self.game.playerOscore ++;
+                setTimeout(function(){clearboard();}, 900);
                 self.game.$save();
             }else if (row2 == 'OOO'){
                 console.log("O won!"); 
                 self.game.playerOscore ++;
+                setTimeout(function(){clearboard();}, 700);
                 self.game.$save();
             }else if (row3 == 'OOO'){
                 console.log("O won!"); 
                 self.game.playerOscore ++;
+                setTimeout(function(){clearboard();}, 700);
                 self.game.$save();
             }else if (diag1 == 'OOO'){
                 console.log("O won!"); 
                 self.game.playerOscore ++;
+                setTimeout(function(){clearboard();}, 700);
                 self.game.$save();
             }else if (diag2 == 'OOO'){
                 console.log("O won!"); 
                 self.game.playerOscore ++;
+                setTimeout(function(){clearboard();}, 700);
                 self.game.$save();
             }else if (column1 == 'OOO'){
                 console.log("O won!"); 
                 self.game.playerOscore ++;
+                setTimeout(function(){clearboard();}, 700);
                 self.game.$save();
             }else if (column2 == 'OOO'){
                 console.log("O won!"); 
                 self.game.playerOscore ++;
+                setTimeout(function(){clearboard();}, 700);
                 self.game.$save();
             }else if (column3 == 'OOO'){
                 console.log("O won!"); 
                 self.game.playerOscore ++;
+                setTimeout(function(){clearboard();}, 700);
                 self.game.$save();
             }
         };//END GET WINNER FUNCTION//
 
         function clearboard(){
-            self.game.spaces = [
-            {occupier: '', playerX: false, playerO: false},
-            {occupier: '', playerX: false, playerO: false},
-            {occupier: '', playerX: false, playerO: false},
-            {occupier: '', playerX: false, playerO: false},
-            {occupier: '', playerX: false, playerO: false},
-            {occupier: '', playerX: false, playerO: false},
-            {occupier: '', playerX: false, playerO: false},
-            {occupier: '', playerX: false, playerO: false},
-            {occupier: '', playerX: false, playerO: false}
-                ];
+            // self.game.spaces = [
+            // {occupier: '', playerX: false, playerO: false},
+            // {occupier: '', playerX: false, playerO: false},
+            // {occupier: '', playerX: false, playerO: false},
+            // {occupier: '', playerX: false, playerO: false},
+            // {occupier: '', playerX: false, playerO: false},
+            // {occupier: '', playerX: false, playerO: false},
+            // {occupier: '', playerX: false, playerO: false},
+            // {occupier: '', playerX: false, playerO: false},
+            // {occupier: '', playerX: false, playerO: false}
+            //     ];
+
+            self.game.spaces = [];
+                for(var i = 0; i < 9; i++){
+                    self.game.spaces.push({occupier: '', playerX: false, playerO: false});
+                }
+
             console.log('board clearboard');
             self.game.occupierTally = 0;
             self.game.$save();
