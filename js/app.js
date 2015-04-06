@@ -1,2 +1,2 @@
 angular
-    .module('ticTacToeApp', []);
+    .module('TicTacToeApp', [])

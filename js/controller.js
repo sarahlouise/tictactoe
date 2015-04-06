@@ -1,21 +1,43 @@
 angular
-	.module('ticTacToeApp')
+	.module('TicTacToeApp')
 	.controller('TicTacToeController', TicTacToeController)
+
+	//Firebase//
+	// .controller("TicTacToeController", function($scope, $firebaseObject) {
+ //  	var ref = new Firebase("https://sarahstictactoe.firebaseio.com/");
+  	
+  	// download the data into a local object
+	// TicTacSyncObj = $firebaseObject(ref);
+
+    // synchronize the object with a three-way data binding
+ // 	 TicTacSyncObj.$bindTo($scope, "TicTacSyncObj");
+	
+	// });
+
+	///Firebase initiation end//
 
 	function TicTacToeController(){ 
 		var self = this;
 		// var ref = new Firebase('https://sarahstictactoe.firebaseio.com')
 		self.username; //Stores input from mainpage username;
-		self.submit = false; //tied to login button and beingPlay function
 		self.turn = 1;
-		self.playerXscore = 0;  //ng-model to gameboard
+		self.playerXscore = 0; //ng-model to gameboard
 		self.playerOscore = 0; //ng-model to gameboard
+
 		self.tieGame = 0;
+		self.occupierTally = 0;
+		self.tieTally = tieTally;
+
 		self.playerClick = playerClick;
 		self.beginPlay = beginPlay;
+
 		self.getWinner = getWinner;
 		self.clearboard = clearboard; //resets spaces for game
-		//Start spaces
+
+		self.submit = false; //tied to login button and beingPlay function
+		self.playAgain = false;  //false = gameover sceen is hidden, tied to 
+		self.gameOver = gameOver;
+
 		self.spaces = [
 			{occupier: '', playerX: false, playerO: false},
 			{occupier: '', playerX: false, playerO: false},
@@ -34,13 +56,32 @@ angular
 			} else if(self.spaces[$index].occupier === 'O'){
 				console.log("no no, this space is taken");
 			} else if(self.turn === 1) {
-				self.spaces[$index].occupier = 'X', self.spaces[$index].playerX = true, self.turn = 2;
+				self.spaces[$index].occupier = 'X', self.occupierTally++, self.spaces[$index].playerX = true, self.turn = 2;
 			} else if(self.turn === 2){
-				self.spaces[$index].occupier= 'O', self.spaces[$index].playerO = true, self.turn = 1;
+				self.spaces[$index].occupier = 'O', self.occupierTally++, self.spaces[$index].playerO = true, self.turn = 1;
 				};
+			tieTally();
 			getWinner();
 
 			}; ///END PLAYER CLICK FUNCTION
+
+
+		//BEGIN NEW GAME
+		function beginPlay(){
+			self.submit = true};
+
+		function gameOver(){
+			console.log('gameOver initiated');
+			return self.playAgain = false;};//hides gameover screen
+
+		function tieTally(){
+			console.log(self.occupierTally);
+
+			if(self.occupierTally == 9){
+				console.log("It's a tie!");
+				self.tieGame++;
+				};
+			}; //closes TieTally
 
 		//BEGIN GET WINNER FUNCTION
 		function getWinner(){
@@ -103,34 +144,10 @@ angular
 				console.log("O won!"); 
 				self.playerOscore ++;
 			}
-
-			// console.log('row1 =' + row1);
-			// console.log('row2 =' + row2);
-			// console.log('row3 =' + row3);
-			// console.log('diag1 =' + diag1);
-			// console.log('diag2 =' + diag2);
-			// console.log('column1 =' + column1);
-			// console.log('column2 =' + column2);
-			// console.log('column3 =' + column3);
-			// console.log(row1 == 'XXX')
-
 		};//END GET WINNER FUNCTION//
 
-		function tieGame(){
-			if(self.spaces.occupier === !'')
-				console.log('tie game!');
-				self.tieGame++;
-				clearboard();
-		}
-
-		//BEGIN NEW GAME//
-		function beginPlay(){
-			self.submit = true};
-		//END BEGINPLAY FUNCTION//
-
 		function clearboard(){
-			// for(i=0; i<9; i++){
-			// 	self.spaces = {occupier: '', playerX: false, playerO: false};
+			
 			self.spaces = [
 			{occupier: '', playerX: false, playerO: false},
 			{occupier: '', playerX: false, playerO: false},
@@ -142,20 +159,20 @@ angular
 			{occupier: '', playerX: false, playerO: false},
 			{occupier: '', playerX: false, playerO: false}
 				];
-			console.log('clearboard');
+			console.log('board clearboard');
+			self.occupierTally = 0;
 
-			//tally total game score
-
-			if(self.playerOscore + self.tieGame + self.playerXscore == 10){
+			//Game to 5//
+			if(self.playerOscore + self.tieGame + self.playerXscore == 5){
 				console.log('Well Played! Game Over');
 				self.playerXscore = 0;
 				self.playerOscore = 0;
 				self.tieGame = 0; 
+				gameOver = true;
 			}
-
 		};
 		//End Clearboard functioon 
-		
-
 
 	} ///////CLOSES TICTACTOE CONTROLLER//////////
+
+
